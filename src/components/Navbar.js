@@ -14,9 +14,24 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <h5>Chris E mall</h5>
+            <h5>Chris Store</h5>
           </Link>
+          <button type="button" className="nav-toggle">
+            <FaBars />
+          </button>
         </div>
+        <ul className="nav-links">
+          {links.map((link) => {
+            const { id, text, url } = link;
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        <CartButtons />
       </div>
     </NavContainer>
   );
