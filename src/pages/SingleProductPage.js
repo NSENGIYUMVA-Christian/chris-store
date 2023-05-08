@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constants";
 import { formatPrice } from "../utils/helpers";
@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 
 const SingleProductPage = () => {
   const { id } = useParams();
-  // getting useHistory to handle programmatically
-  const history = useHistory();
+  // getting useNavigate to handle programmatically
+  const navigate = useNavigate();
   // importing fetchSinglePage function and other required states values
   const {
     fetchSingleProduct,
@@ -29,15 +29,17 @@ const SingleProductPage = () => {
   // fetch data
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
 
   // handle error programmatically,in case there is an error, back to the homepage after 3 sec
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        history.push(`/`);
+        navigate(`/`);
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   // handle loading

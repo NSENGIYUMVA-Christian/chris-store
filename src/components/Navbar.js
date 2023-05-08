@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.svg";
+import logo from "../assets/chrisstor.png";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
@@ -10,13 +10,19 @@ import { useUserContext } from "../context/user_context";
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
+  // grab values form user contexts
+  const { myUser } = useUserContext();
 
   return (
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <h5>Chris Store</h5>
+            <img
+              src={logo}
+              style={{ width: "10vw", margin: "auto" }}
+              alt="chris store"
+            />
           </Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
@@ -31,8 +37,13 @@ const Nav = () => {
               </li>
             );
           })}
-        </ul>
 
+          {myUser && (
+            <li>
+              <Link to="/checkout">checkout</Link>
+            </li>
+          )}
+        </ul>
         <CartButtons />
       </div>
     </NavContainer>
