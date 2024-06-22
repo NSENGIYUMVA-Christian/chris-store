@@ -5,7 +5,8 @@ const Footer = () => {
     <Wrapper>
       <h5>
         &copy;{new Date().getFullYear()}
-        <span> Chris Store</span>
+        <span>Made By HAKIZIMANA Jean Claude </span>
+        <span>(0787591962)< /span>
       </h5>
 
       <h5>All rights reserved</h5>
