@@ -5,7 +5,7 @@ const Footer = () => {
     <Wrapper>
       <h5>
         &copy;{new Date().getFullYear()}
-        <span>Made By HAKIZIMANA Jean Claude </span>
+    
         <span>(0787591962)< /span>
       </h5>
 
