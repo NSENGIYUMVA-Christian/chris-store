@@ -6,7 +6,7 @@ const Footer = () => {
       <h5>
         &copy;{new Date().getFullYear()}
     
-        <span>(0787591962)< /span>
+   
       </h5>
 
       <h5>All rights reserved</h5>
